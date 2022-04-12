@@ -51,6 +51,8 @@ final class User implements UserInterface
                     $initials .= substr($item, 0, 1);
                 }
                 return strtoupper($initials);
+            case 'navbar':
+                return strtoupper(substr($this->getDisplayName(), 0, 1));
 
             default:
                 return $this->displayName;

@@ -1,0 +1,100 @@
+<nav
+    class="
+        fixed top-0 left-0 w-full
+        bg-gradient-to-b from-white via-white to-transparent
+        pb-5
+    "
+>
+    <div class="sm:px-5 xl:px-0">
+        <div
+            class="
+                flex justify-between items-center
+                bg-gray-100
+            "
+        >
+            {# Left side #}
+            <div class="flex items-center">
+                {# Brand #}
+                <a href="{{ path('dashboard') }}" class="py-4 px-5 bg-gray-800 text-white">
+                    <h1 class="text-xl font-light">ATC Groupe</h1>
+                </a>
+
+                {# Menu #}
+                <div class="flex items-center justify-between hidden sm:block sm:ml-5 h-full">
+                    {{ include('component/nav/navbar_menu_item.html.twig', {
+                        href: path('dashboard'),
+                        label: 'Pose'
+                    }) }}
+
+                    {{ include('component/nav/navbar_menu_item.html.twig', {
+                        href: path('dashboard'),
+                        label: 'Informatique'
+                    }) }}
+
+                    {{ include('component/nav/navbar_menu_item.html.twig', {
+                        href: path('dashboard'),
+                        label: 'Achats'
+                    }) }}
+
+                    {{ include('component/nav/navbar_menu_item.html.twig', {
+                        href: path('dashboard'),
+                        label: 'Admin'
+                    }) }}
+                </div>
+            </div>
+
+            {# Right side #}
+            <div class="flex items-center justify-end px-5">
+                {# Logout #}
+                <div class="mr-2">
+                    <a href="{{ path('logout') }}">
+                        <i class="fas fa-sign-out-alt text-xl text-gray-400 hover:text-gray-800"></i>
+                    </a>
+                </div>
+
+                {# User #}
+                <div class="hidden sm:block px-3.5 py-1.5 rounded-full bg-gray-800 text-white text-xl">
+                    {{ app.user.displayName('navbar') }}
+                </div>
+
+                {# Button for mobile menu #}
+                <div class="sm:hidden">
+                    <i id="app_navbar_button" class="fas fa-bars text-3xl text-gray-500"></i>
+                </div>
+            </div>
+        </div>
+
+        <div
+            id="app_navbar_mobile_menu"
+            class="
+                hidden
+                bg-gray-200
+                px-3 py-2
+                border-t border-gray-500
+                transition ease-in-out duration-300
+            "
+        >
+            <ul>
+                {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
+                    href: path('dashboard'),
+                    label: 'Pose'
+                }) }}
+
+                {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
+                    href: path('dashboard'),
+                    label: 'Informatique'
+                }) }}
+
+                {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
+                    href: path('dashboard'),
+                    label: 'Achats'
+                }) }}
+
+                {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
+                    href: path('dashboard'),
+                    label: 'Admin'
+                }) }}
+            </ul>
+        </div>
+    </div>
+</nav>

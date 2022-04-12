@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ include('core/nav.html.twig') }}
+
+    <main class="px-5 sm:px-10 xl:px-5 pt-28 sm:pt-32">
+        {% block main %}{% endblock %}
+    </main>
+
+    {{ include('core/footer.html.twig') }}
+{% endblock %}

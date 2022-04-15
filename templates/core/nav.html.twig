@@ -28,16 +28,11 @@
 
                     {{ include('component/nav/navbar_menu_item.html.twig', {
                         href: path('dashboard'),
-                        label: 'Informatique'
+                        label: 'Demandes'
                     }) }}
 
                     {{ include('component/nav/navbar_menu_item.html.twig', {
-                        href: path('dashboard'),
-                        label: 'Achats'
-                    }) }}
-
-                    {{ include('component/nav/navbar_menu_item.html.twig', {
-                        href: path('dashboard'),
+                        href: path('admin_index'),
                         label: 'Admin'
                     }) }}
                 </div>
@@ -82,16 +77,11 @@
 
                 {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
                     href: path('dashboard'),
-                    label: 'Informatique'
+                    label: 'Demandes'
                 }) }}
 
                 {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
-                    href: path('dashboard'),
-                    label: 'Achats'
-                }) }}
-
-                {{ include('component/nav/navbar_mobile_menu_item.html.twig', {
-                    href: path('dashboard'),
+                    href: path('admin_index'),
                     label: 'Admin'
                 }) }}
             </ul>

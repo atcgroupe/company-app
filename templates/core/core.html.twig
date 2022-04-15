@@ -3,9 +3,22 @@
 {% block body %}
     {{ include('core/nav.html.twig') }}
 
-    <main class="px-5 sm:px-10 xl:px-5 pt-28 sm:pt-32">
+    <main class="px-5 sm:px-10 xl:px-5 pt-20">
         {% block main %}{% endblock %}
     </main>
 
     {{ include('core/footer.html.twig') }}
+
+    <div
+        id="popup"
+        class="
+            hidden
+            absolute top-0 left-0
+            flex justify-center items-center
+            w-full h-full
+            bg-white bg-opacity-90
+        "
+    >
+        {% block popup %}{% endblock %}
+    </div>
 {% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'core/core.html.twig' %}
+
+{% block main %}
+    <div class="max-w-screen-lg mx-auto">
+        {# nav #}
+        <p class="text-sm text-gray-400 flex items-center">
+            <i class="fas fa-bars mr-2"></i>
+            <a href="{{ path('admin_index') }}" class="hover:text-gray-800 mr-1">Admin</a> /
+            Companies
+        </p>
+
+        <h1 class="text-2xl font-light text-center mt-2">Companies</h1>
+
+        {# Add new company #}
+        <section class="text-right mt-2">
+            {{ include('component/button/button.html.twig', {
+                href: path('admin_company_create'),
+                label: 'Nouvelle companie',
+                labelClass: 'hidden sm:block',
+                icon: 'fas fa-plus'
+            }) }}
+        </section>
+
+        {# Companies table #}
+        {% set gridHeadItemClass = 'border-r border-gray-400 p-3 font-normal' %}
+        <section class="mt-5">
+            <div class="grid grid-cols-4 lg:grid-cols-8 border-l border-y border-gray-400 bg-gray-50 text-gray-400">
+                <div class="col-span-3 {{ gridHeadItemClass }}">Nom</div>
+                <div class="col-span-2 {{ gridHeadItemClass }} hidden lg:block">Service</div>
+                <div class="{{ gridHeadItemClass }} text-center hidden lg:block">Fournisseur</div>
+                <div class="{{ gridHeadItemClass }} text-center hidden lg:block">Fabricant</div>
+                <div class="{{ gridHeadItemClass }} text-center">Actif</div>
+            </div>
+
+            {% for company in companies %}
+            <a
+                href="{{ path('admin_company_view', { id: company.id }) }}"
+                class="
+                    grid grid-cols-4 lg:grid-cols-8
+                    border-l border-b border-gray-400
+                    hover:bg-gray-100
+                    transition ease-in-out duration-300
+                "
+            >
+                <div class="col-span-3 {{ gridHeadItemClass }}">{{ company.name|upper }}</div>
+
+                <div class="col-span-2 {{ gridHeadItemClass }} overflow-clip hidden lg:block">
+                    {{ company.serviceLabel }}
+                </div>
+
+                <div class="{{ gridHeadItemClass }} text-center hidden lg:block">
+                    {% if company.isProvider %}
+                        <i class="fas fa-check"></i>
+                    {% else %}
+                        <i class="fas fa-times"></i>
+                    {% endif %}
+                </div>
+
+                <div class="{{ gridHeadItemClass }} text-center hidden lg:block">
+                    {% if company.isManufacturer %}
+                        <i class="fas fa-check"></i>
+                    {% else %}
+                        <i class="fas fa-times"></i>
+                    {% endif %}
+                </div>
+
+                <div class="{{ gridHeadItemClass }} text-center">
+                    {% if company.isActive %}
+                        <i class="fas fa-check"></i>
+                    {% else %}
+                        <i class="fas fa-times"></i>
+                    {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}

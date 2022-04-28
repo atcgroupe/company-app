@@ -14,11 +14,20 @@
         <section
             class="
                 mt-5
-                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4
+                grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4
             "
         >
-            {{ include('component/button/nav_button.html.twig', { href: path('dashboard'), label: 'Paramètres généraux' }) }}
-            {{ include('component/button/nav_button.html.twig', { href: path('admin_company_index'), label: 'Companies' }) }}
+            {{ include('component/button/nav_button.html.twig', {
+                href: path('dashboard'),
+                label: 'Paramètres généraux',
+                help: 'Paramétrage global de l\'application'
+            }) }}
+
+            {{ include('component/button/nav_button.html.twig', {
+                href: path('admin_company_index'),
+                label: 'Companies',
+                help: 'Liste des entreprises référencées dans le système et utilisées dans les différents modules'
+            }) }}
         </section>
     </div>
 {% endblock %}

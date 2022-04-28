@@ -22,7 +22,7 @@
 {% set hoverTextStyle = 'hover:text-gray-600' %}
 {% set hoverBorderStyle = '' %}
 {% set hoverRingStyle = 'hover:ring-4 ring-gray-200' %}
-{% set width = 'inline-flex' %}
+{% set display = 'inline-flex' %}
 
 {# tag #}
 {% if href is defined %}
@@ -60,9 +60,9 @@
     {# width: full|fit #}
     {% if width is defined %}
         {% if width == 'full' %}
-            {% set width = 'flex' %}
+            {% set display = 'flex' %}
         {% elseif width == 'fit' %}
-            {% set width = 'inline-flex' %}
+            {% set display = 'inline-flex' %}
         {% endif %}
     {% endif %}
 
@@ -87,7 +87,7 @@
         rounded
         bg-white
         transition ease-in-out duration-100
-        {{ width }} {{ hoverTextStyle }} {{ fontSize }}
+        {{ display }} {{ hoverTextStyle }} {{ fontSize }}
         {% if class is defined %}{{ class }}{% endif %}
     "
 >
